@@ -1,0 +1,31 @@
+--Create a grocery store database
+
+CREATE TABLE database (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, price INTEGER, section TEXT);
+
+INSERT INTO database VALUES (1, "apples", 30, .89, "produce");
+INSERT INTO database VALUES (2, "bananas", 24, 1.29, "produce");
+INSERT INTO database VALUES (3, "chicken breast", 14, 6.99, "deli");
+INSERT INTO database VALUES (4, "ground beef", 16, 3.99, "deli");
+INSERT INTO database VALUES (5, "gouda cheese", 10, 4.99, "dairy");
+INSERT INTO database VALUES (6, "milk", 20, 2.50, "dairy");
+INSERT INTO database VALUES (7, "chips", 15, 4.99, "snacks");
+INSERT INTO database VALUES (8, "cookies", 7, 2.49, "bakery");
+INSERT INTO database VALUES (9, "crackers", 13, 3.49, "snacks");
+INSERT INTO database VALUES (10, "french bread", 4, 2.99, "bakery");
+INSERT INTO database VALUES (11, "sour cream", 19, 2.99, "dairy");
+INSERT INTO database VALUES (12, "grapes", 16, 6.99, "produce");
+INSERT INTO database VALUES (13, "salmon fillet", 12, 8.99, "deli");
+INSERT INTO database VALUES (14, "goat cheese", 6, 7.99, "dairy");
+INSERT INTO database VALUES (15, "cupcakes", 8, 4.99, "bakery");
+
+--How many items are there total in the store?
+SELECT * FROM database;
+SELECT SUM(quantity) FROM database;
+
+--Display the database according to price (lowest to highest)
+SELECT * FROM database
+ORDER BY price ASC;
+
+--Display the database according to section
+SELECT * FROM database
+ORDER BY section;
