@@ -29,14 +29,14 @@ INSERT INTO celebrity_pets VALUES (5, "Tara Lynn", "bird", 1);
 
 
 
-/*Which singers are just singers and which singers are also actors?*/
-SELECT singers.name as "singers", actors.name as "actors and singers" FROM singers
-    LEFT OUTER JOIN actors 
+/*Which singers are also actors?*/
+SELECT singers.name as "singers", actors.name as "actors" FROM singers
+    JOIN actors 
     ON singers.id=actors.singing_id
     ORDER BY "actors and singers" desc; 
     
 /*Which actors from 'actors' table have pets?*/
 SELECT actors.name, celebrity_pets.celebrity_name FROM actors
-    LEFT OUTER JOIN celebrity_pets
+    JOIN celebrity_pets
     ON actors.name=celebrity_pets.celebrity_name
     ORDER BY celebrity_name desc;
