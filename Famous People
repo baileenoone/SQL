@@ -1,0 +1,42 @@
+/* Create table about the people and what they do here */
+CREATE TABLE singers(id INTEGER PRIMARY KEY, name TEXT, number_of_albums INTEGER, genre TEXT, acting TEXT);
+INSERT INTO singers VALUES (1, "Taylor Swift", 10, "pop", "yes");
+INSERT INTO singers VALUES (2, "Olivia Rodrigo", 1, "pop", "no");
+INSERT INTO singers VALUES (3, "Zhu", 4, "edm", "no");
+INSERT INTO singers VALUES (4, "Hilary Duff", 5, "pop", "yes");
+INSERT INTO singers VALUES (5, "Selena Gomez", 3, "pop",
+"yes");
+INSERT INTO singers VALUES (6, "Run the Jewels", 4, "hip hop", "no");
+INSERT INTO singers VALUES (7, "Lights", 6, "edm", "no");
+INSERT INTO singers VALUES (8, "Kendrick Lamar", 5, "hip hop", "no");
+
+
+CREATE TABLE actors(id INTEGER PRIMARY KEY, name TEXT, age INTEGER, number_of_movies INTEGER, singing_id INTEGER);
+INSERT INTO actors VALUES (1,"Taylor Swift", 33, 15, 1);
+INSERT INTO actors VALUES (2, "Blake Lively", 35, 23, 10);
+INSERT INTO actors VALUES (3, "Ryan Reynolds", 46, 70,11);
+INSERT INTO actors VALUES (4, "Hilary Duff", 35, 23, 4);
+INSERT INTO actors VALUES (5, "Selena Gomez", 30, 40, 5);
+INSERT INTO actors VALUES (6, "Zac Efron", 35, 44, 12);
+INSERT INTO actors VALUES (7, "Demi Lovato", 30, 13, 9);
+
+CREATE TABLE celebrity_pets(id INTEGER PRIMARY KEY, celebrity_name TEXT, type_of_pet TEXT, how_many INTEGER);
+INSERT INTO celebrity_pets VALUES (1, "Taylor Swift", "cat", 3);
+INSERT INTO celebrity_pets VALUES (2, "Ryan Reynolds", "dog", 1);
+INSERT INTO celebrity_pets VALUES (3, "Ariana Madix", "dog", 2);
+INSERT INTO celebrity_pets VALUES (4, "Ruby Rose", "dog", 1);
+INSERT INTO celebrity_pets VALUES (5, "Tara Lynn", "bird", 1);
+
+
+
+/*Which singers are just singers and which singers are also actors?*/
+SELECT singers.name as "singers", actors.name as "actors and singers" FROM singers
+    LEFT OUTER JOIN actors 
+    ON singers.id=actors.singing_id
+    ORDER BY "actors and singers" desc; 
+    
+/*Which actors from 'actors' table have pets?*/
+SELECT actors.name, celebrity_pets.celebrity_name FROM actors
+    LEFT OUTER JOIN celebrity_pets
+    ON actors.name=celebrity_pets.celebrity_name
+    ORDER BY celebrity_name desc;
